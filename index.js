@@ -4,9 +4,11 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 const session = require("express-session");
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const userRoutes = require("./routes/users");
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/fitfinity")
+  .connect("mongodb://127.0.0.1:27017/prudentia")
   .then(() => console.log("Connected!"));
 
 const db = mongoose.connection;
@@ -100,7 +102,7 @@ app.get("/", setCurrentPage, (req, res) => {
   res.render("home/home");
 });
 
-
+app.use("/", userRoutes);
 
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
