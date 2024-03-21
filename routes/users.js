@@ -21,7 +21,7 @@ router.post(
     req.login(registeredUser, (err) => {
       if (err) return next(err);
       req.flash("success", "Welcome to Fitfinity!");
-      res.redirect("/journals");
+      res.redirect("/");
     });
   })
 );
@@ -41,7 +41,7 @@ router.post(
   }),
   (req, res) => {
     req.flash("success", "Welcome back!");
-    const redirectUrl = res.locals.returnTo || "/journals";
+    const redirectUrl = res.locals.returnTo || "/";
     res.redirect(redirectUrl);
   }
 );
@@ -53,7 +53,7 @@ router.get("/logout", setCurrentPage, (req, res) => {
       return next(err);
     }
     req.flash("success", "Goodbye!");
-    res.redirect("/journals");
+    res.redirect("/");
   });
 });
 
