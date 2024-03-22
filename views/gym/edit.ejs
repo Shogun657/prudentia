@@ -1,0 +1,88 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center">Edit Campground</h1>
+  <div class="col-6 offset-3">
+    <form
+      action="/gyms/<%= gym._id %>?_method=PUT"
+      method="POST"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="title"
+          value="<%= gym.title %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          required
+        >
+<%= gym.description %></textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <textarea class="form-control" id="location" name="location" required>
+<%= gym.location %></textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <textarea class="form-control" id="price" name="price" required>
+<%= gym.price %></textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <div class="mb-3 custom-file">
+          <label
+            for="formFileMultiple"
+            class="form-label custom-file-label"
+            for="images"
+            >Add more Image(s)</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="images"
+            name="images"
+            multiple
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <% gym.images.forEach(function(img, i) { %>
+        <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="" />
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            id="image-<%= i %>"
+            name="deleteImages[]"
+            value="<%= img.filename %>"
+          />
+        </div>
+        <label for="image-<%= i %>">Delete?</label>
+        <% }) %>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-info">Update Gym Info</button>
+      </div>
+    </form>
+    <a href="/gyms/<%= gym._id %>">Back to the Gym</a>
+  </div>
+</div>
