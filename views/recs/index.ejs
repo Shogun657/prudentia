@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/pages.css" />
+  </head>
+  <body>
+    <h1 style="margin-top: 20px; margin-left: 2.2%">Recommendations!</h1>
+    <div>
+      <button
+        class="btn btn-success mb-3"
+        style="margin-left: 2.2%; padding: 5px"
+      >
+        <a href="/recs/new" style="text-decoration: none; color: inherit"
+          >Recommend Something New</a
+        >
+      </button>
+    </div>
+    <ul>
+      <% for (let rec of recs) { %> %>
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="<%= rec.images[0].url  %>"
+          alt="Card image cap"
+        />
+
+        <div class="card-body">
+          <h5 class="card-title"><%= rec.title %></h5>
+          <p class="card-text"><small><%= rec.createdAt %></small></p>
+          <a href="/recs/<%= rec._id %>" class="btn btn-primary">Read</a>
+        </div>
+      </div>
+      <% } %>
+    </ul>
+  </body>
+</html>

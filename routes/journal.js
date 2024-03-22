@@ -8,7 +8,6 @@ const {
   isJournalAuthor,
 } = require("../middleware");
 const { JournalEntry } = require("../models/journal");
-
 const multer = require("multer");
 const { storage } = require("../cloudinary/index");
 const upload = multer({ storage });
@@ -90,11 +89,8 @@ router.get(
       const journalEntry = await JournalEntry.findById(req.params.id).populate(
         "author"
       );
-      console.log("heil");
-      console.log(journalEntry);
       res.render("journals/show", { journalEntry });
     } catch (err) {
-      console.log(err);
       req.flash("error", "Failed to fetch journal entry");
       res.redirect("/journals");
     }
@@ -125,7 +121,6 @@ router.put(
   "/journals/:id",
   isLoggedIn,
   isJournalAuthor,
-  setCurrentPage,
   upload.array("images"),
   async (req, res) => {
     try {

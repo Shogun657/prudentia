@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate') %>
+<html>
+  <head>
+    <title>Journal</title>
+    <link rel="stylesheet" href="../../public/stylesheets/styles.css">
+  </head>
+  <body>
+    
+  
+  <div class="row">
+    <h1 class="text-center">Edit Campground</h1>
+    <div class="col-6 offset-3">
+      <form action="/journals/<%= journal._id %>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label class="form-label" for="title">Title</label>
+          <input class="form-control" type="text" id="title" name="title" value="<%= journal.title %>" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="content">Content</label>
+          <textarea class="form-control" id="content" name="content" required><%= journal.content %></textarea>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="mb-3 custom-file">
+            <label for="formFileMultiple" class="form-label custom-file-label" for="images">Add more Image(s)</label>
+            <input class="form-control" type="file" id="images" name="images" multiple>
+          </div>
+        </div>
+        <div class="mb-3">
+          <% journal.images.forEach(function(img, i) { %>
+                          <img src="<%= img.thumbnail %>" class="img-thumbnail" alt=""> 
+            <div class="form-check-inline">
+              <input type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%= img.filename %>">
+            </div>
+            <label for="image-<%= i %>">Delete?</label>
+            <% }) %>
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-info">Update journal</button>
+        </div>
+      </form>
+      <a href="/journals/<%= journal._id %>">Back To the Entry</a>
+    </div>
+  </div>
+</body>
+  </html>

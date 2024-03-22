@@ -1,4 +1,7 @@
-
+const { JournalEntry } = require("./models/journal");
+const { Review } = require("./models/review");
+const { Gym } = require("./models/gym");
+const { RecEntry } = require('./models/recs')
 
 module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
@@ -17,7 +20,7 @@ module.exports.storeReturnTo = (req, res, next) => {
 module.exports.isJournalAuthor = async (req, res, next) => {
   const { id } = req.params;
   console.log(id)
-  const journal = await JournalEntry.findById(id);
+  const journal = await JournalEntry.findById(id).populate('author');
   console.log(journal)
   if(!journal.author.equals(req.user._id)){
     return res.redirect(`/journals/${journal._id}`)
@@ -28,11 +31,21 @@ module.exports.isGymAuthor = async (req, res, next) => {
   const { id } = req.params;
   const gym = await Gym.findById(id);
   console.log(gym)
-  if(!gym.author.equals(req.user._id)){
-    return res.redirect(`/gyms/${journal._id}`)
+  if(gym.author && !gym.author.equals(req.user._id)){
+    return res.redirect(`/gyms/${gym._id}`)
   }
   next();
 };
+module.exports.isRecAuthor = async (req, res, next) => {
+  const { id } = req.params;
+  const rec = await RecEntry.findById(id);
+  console.log(rec)
+  if(!rec.author.equals(req.user._id)){
+    return res.redirect(`/recs/${rec._id}`)
+  }
+  next();
+};
+// change the spelling
 module.exports.vaidateJournal = (req, res, next) => {
   const result = JournalEntry.validate(req.body);
   const { error } = result;

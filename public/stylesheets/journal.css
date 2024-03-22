@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat:wght@600&family=Roboto+Condensed:wght@300&display=swap');
+.heading11{
+    padding: 20px;
+    /*height: 100px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+  
+display: flex;
+align-items: center;
+justify-content: center;
+background-image: linear-gradient(to right, rgb(255, 98, 0), rgb(255, 214, 175));
+
+    border: 2px solid rgb(15, 1, 1);
+    border-radius: 20px;
+    text-wrap:;*/
+   
+    /* -webkit-text-fill-color: rgb(244, 104, 4); */
+    font-size: 90px;
+    
+    font-family: "Bruno Ace SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: beige;
+        
+    /* Set background properties */
+    background-size: cover; /* Adjusts the size of the background image to cover the entire container */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: center;
+}
+body{
+    background-image: url("/images/upper_shadow.jpg");
+
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-color: black;
+    background-size: 100% 100%;
+
+
+
+}
+.add{
+    background-color : #f35e3e;
+    color: black;
+    border: 1px solid black;
+    font-weight: 600;
+}
+.add:hover{
+    background-color : beige;
+    color: black;
+    border: 1px solid black;
+    font-weight: 600;
+}
