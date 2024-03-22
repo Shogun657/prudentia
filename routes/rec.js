@@ -23,13 +23,18 @@ router.get("/recs/new", isLoggedIn, setCurrentPage, (req, res) => {
 });
 
 // POST route for New Recommendation Entry
-router.post("/recs", setCurrentPage, async (req, res) => {
+router.post("/recs", setCurrentPage,upload.array('images'), async (req, res) => {
   try {
     const { title, content, tags } = req.body;
     const tagsArray = tags.split(",");
+    const images = req.files.map((file) => ({
+        url: file.path,
+        filename: file.filename,
+      }));
     const recs = new RecEntry({
       title,
       content,
+      images,
       tags: tagsArray,
       author: req.user._id,
     });

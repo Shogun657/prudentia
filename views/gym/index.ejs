@@ -10,9 +10,12 @@
   <body>
 <div id="map" style="width: 100%; height: 500px;"></div>
 
-    <h1 style="margin-left: 2.2%;">All Gyms</h1>
-    <div style="margin-bottom: 5px;">
-        <button class="btn btn-success mb-3" style="margin-left: 2.2%; padding: 5px;"><a href="/gyms/new" style="text-decoration: none; color: inherit; margin-left: 5%;">Add New Gym</a></button>
+    <br>
+    <br>
+    <h1 class="all_gyms" style="margin-left: 2.2%; text-align: center;">All Gyms</h1>
+    <br>
+    <div style="margin-top: 10px;margin-bottom: 10px; padding-left: 25px;">
+        <button class="btn btn-success mb-3" style="margin-left: 2.2%; padding: 10px; background-color: #f35e3e;"><a href="/gyms/new" style="text-decoration: none; color: black; ">Add New Gym</a></button>
     </div>
     <ul>
         
@@ -20,16 +23,16 @@
           <div class="card bg-dark text-white mb-3" style="max-height: 33vh">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="img-fluid" style="max-height: 33vh;" alt="" src="<%= gym.images[0].url  %>">
-                </div>
+                    <img class="img-fluid" style="max-height: 33vh; " alt="" src="<%= gym.images[0].url  %>">
+                </div> 
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="text-white card-title"><%= gym.name  %></h5>
+                        <h5 class="card-title"><%= gym.name  %></h5>
                         <p class="card-text"><%= gym.description %></p>
                         <p class="card-text">
-                            <small class="text-white-100"><%= gym.location  %></small>
+                            <small class="text-white"><%= gym.location  %></small>
                         </p>
-                        <a href="/gyms/<%= gym._id %>"><button class="btn btn-success">Show Details</button></a>
+                        <a href="/gyms/<%= gym._id %>"><button class="btn btn-success" style="background-color: black;">Show Details</button></a>
                     </div>
                 </div>
             </div>

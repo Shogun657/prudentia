@@ -122,7 +122,7 @@ body {
 }
 
 .background-image {
-  background-image: url('https://lyncserve.com/images/design-team.jpg');
+  background-image: url('https://lyncserve.com/images/design-team.jpgcv');
   background-size: cover;
   background-position: center;
   padding: 20px; /* Add padding to ensure content is not too close to the edges */
@@ -130,7 +130,7 @@ body {
 
 .details,
 .footer__btn {
-  color: white; /* Set text color to white */
+  color: #f35e3e; /* Set text color to white */
 }
 
 
