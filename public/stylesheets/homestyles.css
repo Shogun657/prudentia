@@ -110,6 +110,29 @@ body {
   margin: auto;
   text-align: center;
 }
+.about-short {
+  max-height: 20rem;
+  background-color: #000000;
+  display: grid;
+  place-content: center;
+}
+
+.about-short {
+  position: relative;
+}
+
+.background-image {
+  background-image: url('https://lyncserve.com/images/design-team.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px; /* Add padding to ensure content is not too close to the edges */
+}
+
+.details,
+.footer__btn {
+  color: white; /* Set text color to white */
+}
+
 
 .learn__more {
   font-size: 1rem;

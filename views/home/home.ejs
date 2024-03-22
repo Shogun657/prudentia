@@ -1,83 +1,96 @@
 <% layout('layouts/boilerplate') %>
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/homestyles.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/homestyles.css" />
+</head>
 
-  <body>
-    <div class="parallax__container">
-      <img src="bg-1.jpg" alt="parallax11" />
-      <img id="bg-2" src="bg-2.png" alt="parallax" />
-      <h1 id="title">FitFinity</h1>
-      <img id="bg-3" src="bg-3.png" alt="parallax" />
+<body>
+  <div class="parallax__container">
+    <img src="bg-1.jpg" alt="parallax11" />
+    <img id="bg-2" src="bg-2.png" alt="parallax" />
+    <h1 id="title">FitFinity</h1>
+    <img id="bg-3" src="bg-3.png" alt="parallax" />
+  </div>
+  <section class="about">
+    <div class="image__gallary">
+      <div class="image__card" id="image__card-1">
+        <img src="tire roll.jpg" alt="grid" />
+      </div>
+      <div class="image__card" id="image__card-2">
+        <img src="deadlift.jpg" alt="grid" />
+      </div>
+      <div class="image__card" id="image__card-3">
+        <img src="david laid aesthetic (1).jpg" alt="grid" />
+      </div>
+      <div class="image__card" id="image__card-4">
+        <img src="baku pose (1).jpg" alt="grid" />
+      </div>
     </div>
-    <section class="about">
-      <div class="image__gallary">
-        <div class="image__card" id="image__card-1">
-          <img src="tire roll.jpg" alt="grid" />
+    <div class="details">
+      "What hurts today makes you stronger tomorrow" -Jay Cutler
+    </div>
+    <br>
+    <div class="footer__btn">
+      <a href="/gyms"><button class="learn__more">Join a gym now!</button></a>
+    </div>
+  </section>
+  <section class="about-short">
+    <div class="background-image">
+        <div class="details">
+            A one-step solution to your fitness and well-being along with community engagement to aid
+            you to achieve all your fitness goals at every step of your journey
         </div>
-        <div class="image__card" id="image__card-2">
-          <img src="deadlift.jpg" alt="grid" />
+        <br>
+        <div class="footer__btn">
+            <a href="/gyms"><button class="learn__more">About Us!</button></a>
         </div>
-        <div class="image__card" id="image__card-3">
-          <img src="david laid aesthetic (1).jpg" alt="grid" />
-        </div>
-        <div class="image__card" id="image__card-4">
-          <img src="baku pose (1).jpg" alt="grid" />
-        </div>
-      </div>
-      <div class="details">
-        "What hurts today makes you stronger tomorrow" -Jay Cutler
-      </div>
-      <br>
-      <div class="footer__btn">
-        <a href="/gyms"><button class="learn__more">Join a gym now!</button></a>
-      </div>
-    </section>
-    <script>
-      var title = document.getElementById("title");
-      var bg_2 = document.getElementById("bg-2");
-      var bg_3 = document.getElementById("bg-3");
+    </div>
+</section>
 
-      var image_card_1 = document.getElementById("image__card-1");
-      var image_card_2 = document.getElementById("image__card-2");
-      var image_card_3 = document.getElementById("image__card-3");
-      var image_card_4 = document.getElementById("image__card-4");
+  <script>
+    var title = document.getElementById("title");
+    var bg_2 = document.getElementById("bg-2");
+    var bg_3 = document.getElementById("bg-3");
 
-      document.addEventListener("scroll", (event) => {
-        var positionY = window.scrollY;
+    var image_card_1 = document.getElementById("image__card-1");
+    var image_card_2 = document.getElementById("image__card-2");
+    var image_card_3 = document.getElementById("image__card-3");
+    var image_card_4 = document.getElementById("image__card-4");
 
-        title.style.fontSize = `${100 + positionY * 0.5}px`;
+    document.addEventListener("scroll", (event) => {
+      var positionY = window.scrollY;
 
-        bg_2.style.top = `-${positionY * 0.5}px`;
-        bg_3.style.top = `-${positionY}px`;
-        bg_3.style.scale = 1 + positionY * 0.001;
+      title.style.fontSize = `${100 + positionY * 0.5}px`;
 
-        image_card_1.style.transform = `translateY(${positionY * -0.5 + 400
-          }px)`;
+      bg_2.style.top = `-${positionY * 0.5}px`;
+      bg_3.style.top = `-${positionY}px`;
+      bg_3.style.scale = 1 + positionY * 0.001;
 
-        image_card_2.style.transform = `translateY(${positionY * 0.1 + -50}px)`;
+      image_card_1.style.transform = `translateY(${positionY * -0.5 + 400
+        }px)`;
 
-        image_card_3.style.transform = `translateY(${positionY * -0.1 + 100
-          }px)`;
+      image_card_2.style.transform = `translateY(${positionY * 0.1 + -50}px)`;
 
-        image_card_4.style.transform = `translateY(${positionY * 0.2 + -125
-          }px)`;
+      image_card_3.style.transform = `translateY(${positionY * -0.1 + 100
+        }px)`;
 
-        var _newOpacity = positionY * 0.001;
-        if (_newOpacity >= 0 && _newOpacity <= 1) {
-          image_card_1.style.opacity = _newOpacity;
-          image_card_2.style.opacity = _newOpacity;
-          image_card_3.style.opacity = _newOpacity;
-          image_card_4.style.opacity = _newOpacity;
-        }
-      });
-    </script>
-  </body>
+      image_card_4.style.transform = `translateY(${positionY * 0.2 + -125
+        }px)`;
 
-  </html>
+      var _newOpacity = positionY * 0.001;
+      if (_newOpacity >= 0 && _newOpacity <= 1) {
+        image_card_1.style.opacity = _newOpacity;
+        image_card_2.style.opacity = _newOpacity;
+        image_card_3.style.opacity = _newOpacity;
+        image_card_4.style.opacity = _newOpacity;
+      }
+    });
+  </script>
+</body>
+
+</html>
