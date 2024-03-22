@@ -1,18 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap");
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 html {
-  margin: 0;
+  margin: 100;
   padding: 0;
 }
 
 main {
-  margin: 0;
-  padding: 0;
+  margin: 100;
+  padding: 100;
 }
 
 
@@ -23,9 +19,9 @@ img {
 
 body {
   font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  color: beige;
+  margin: 100;
+  padding: 100;
+  color: #f35e3e;
   background-color: #000000;
 }
 
@@ -78,7 +74,7 @@ body {
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow effect */
+  box-shadow: 0 8px 8px #FCEFED; /* Lighter shadow effect */
 }
 
 .image__card img {
@@ -86,17 +82,6 @@ body {
 }
 
 .details {
-  color: #f35e3e;
-  max-width: 800px;
-  margin: auto;
-  margin-top: 8rem;
-  font-size: 1.2rem;
-  line-height: 2rem;
-  text-align: center;
-}
-
-.details:hover {
-  color: beige;
   max-width: 800px;
   margin: auto;
   margin-top: 8rem;
@@ -119,12 +104,4 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 5px;
 }
-.learn__more:hover {
-  background-color: #f35e3e;
-  font-size: 1rem;
-  font-weight: 600;
-  outline: none;
-  border: none;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-}
+
