@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { isLoggedIn, setGreeting, setCurrentPage, isRecAuthor } = require("../middleware");
-const { RecEntry } = require("../models/recs");
+const  {RecEntry}  = require("../models/recs");
 
 
 // Index page

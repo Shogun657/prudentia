@@ -3,10 +3,17 @@ const ejsMate = require("ejs-mate");
 require("dotenv").config();
 
 const mongoose = require("mongoose");
+const { JournalEntry } = require("./models/journal");
+const { Gym } = require("./models/gym");
 const session = require("express-session");
-const methodOverride = require('method-override');
+const methodOverride = require('method-override')
+const gymRoutes = require("./routes/gym");
+const journalRoutes = require("./routes/journal");
 const userRoutes = require("./routes/users");
-
+const reviewRoutes = require("./routes/reviews");
+const recRoutes = require("./routes/rec")
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 mongoose
   .connect("mongodb://127.0.0.1:27017/prudentia")
   .then(() => console.log("Connected!"));
@@ -102,7 +109,11 @@ app.get("/", setCurrentPage, (req, res) => {
   res.render("home/home");
 });
 
+app.use("/", gymRoutes);
+app.use("/", journalRoutes);
 app.use("/", userRoutes);
+app.use("/", reviewRoutes);
+app.use("/", recRoutes);
 
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
@@ -111,5 +122,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(5000, () => {
-  console.log("connection established on port 4000");
+  console.log("connection established on port 5000");
 });
